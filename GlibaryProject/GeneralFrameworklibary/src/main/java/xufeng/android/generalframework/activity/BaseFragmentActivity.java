@@ -1,6 +1,7 @@
 package xufeng.android.generalframework.activity;
 
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -33,8 +34,6 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 
         progressDialog = new ProgressDialog(this);
 
-        setImmersionStyle();
-
     }
     /**
      * ----------------------------------------------------------------------
@@ -44,9 +43,12 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
     /**
      * 设置普通沉浸样式
      */
-    protected void setImmersionStyle() {
+    /**
+     * 设置普通沉浸样式
+     */
+    public void setImmersionStyle(String color) {
         StatusBarUtil statusBarUtil = new StatusBarUtil();
-        statusBarUtil.setColor(BaseFragmentActivity.this, getResources().getColor(R.color.statusbar_bg));
+        statusBarUtil.setColorNoTranslucent(BaseFragmentActivity.this, Color.parseColor(color));
     }
 
     /**

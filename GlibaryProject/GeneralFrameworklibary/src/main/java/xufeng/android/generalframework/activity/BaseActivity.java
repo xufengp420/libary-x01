@@ -33,9 +33,6 @@ public abstract class BaseActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        // 设置沉浸样式
-        setImmersionStyle();
-
         //APP 管理类
         BaseAppManager.getAppManager().addActivity(this);
 
@@ -66,9 +63,9 @@ public abstract class BaseActivity extends Activity {
     /**
      * 设置普通沉浸样式
      */
-    protected void setImmersionStyle() {
+    public void setImmersionStyle(String color) {
         statusBarUtil = new StatusBarUtil();
-        statusBarUtil.setColorNoTranslucent(BaseActivity.this, Color.parseColor("#16161C"));
+        statusBarUtil.setColorNoTranslucent(BaseActivity.this, Color.parseColor(color));
     }
 
     /**
