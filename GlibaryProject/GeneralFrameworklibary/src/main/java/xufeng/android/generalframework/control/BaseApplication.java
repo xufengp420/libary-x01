@@ -50,8 +50,6 @@ public class BaseApplication extends Application {
      * 保存值
      */
     public void SpSave(String key, String value) {
-        key = CryptoUtil.encrypt(key);
-        value = CryptoUtil.encrypt(value);
         SharedPreferences sp = getApplicationContext().getSharedPreferences(BaseFlagCode.SP_KEY,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
@@ -63,13 +61,9 @@ public class BaseApplication extends Application {
      * 取值
      */
     public String SpGet(String key) {
-        key = CryptoUtil.encrypt(key);
         SharedPreferences sp = getApplicationContext().getSharedPreferences(BaseFlagCode.SP_KEY,
                 Context.MODE_PRIVATE);
         String result = sp.getString(key, "");
-        if (!result.equals("")) {
-            result = CryptoUtil.decrypt(result);
-        }
         return result;
     }
 
