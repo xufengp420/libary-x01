@@ -17,6 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.daimajia.numberprogressbar.NumberProgressBar;
+
 import xufeng.android.generalframework.R;
 
 /**
@@ -35,6 +37,7 @@ public class AlertDialog {
     private LinearLayout lLayout_bg;
     private TextView txt_title;
     private TextView txt_msg;
+    private NumberProgressBar numberProgressBar;
     private ScrollView scrollView;
     private Button btn_neg;
     private Button btn_pos;
@@ -80,6 +83,8 @@ public class AlertDialog {
         // 按钮中间的线段
         img_line = (ImageView) view.findViewById(R.id.img_line);
         img_line.setVisibility(View.GONE);
+
+        numberProgressBar = (NumberProgressBar) view.findViewById(R.id.number_progress_bar);
 
         // 定义Dialog布局和参数
         dialog = new Dialog(context, R.style.AlertDialogStyle);
@@ -129,6 +134,7 @@ public class AlertDialog {
         } else {
             txt_msg.setText(msg);
         }
+        numberProgressBar.setVisibility(View.GONE);
         return this;
     }
 
@@ -146,6 +152,7 @@ public class AlertDialog {
             txt_msg.setText(msg);
         }
         txt_msg.setGravity(gravity);
+        numberProgressBar.setVisibility(View.GONE);
         return this;
     }
 
@@ -163,6 +170,7 @@ public class AlertDialog {
             txt_msg.setText(msg);
         }
         txt_msg.setGravity(gravity);
+        numberProgressBar.setVisibility(View.GONE);
         return this;
     }
 
@@ -227,6 +235,15 @@ public class AlertDialog {
             }
         });
         return this;
+    }
+
+    public void setProgress(int progress, int max) {
+        if (numberProgressBar != null) {
+            numberProgressBar.setMax(max);
+            numberProgressBar.setProgress(progress);
+            numberProgressBar.setVisibility(View.VISIBLE);
+            txt_msg.setVisibility(View.GONE);
+        }
     }
 
     /**

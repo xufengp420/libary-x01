@@ -35,6 +35,7 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.3.1'
     compile 'com.jcodecraeer:xrecyclerview:1.2.7'
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.daimajia.numberprogressbar:library:1.4@aar'
     compile files('libs/systembartint-1.0.4.jar')
 }
 
@@ -51,7 +52,7 @@ publish {
     repoName = 'maven'
     groupId = 'com.glibaryproject'//jcenter上的路径
     artifactId = 'Glibrary'//项目名称
-    publishVersion = '1.1.0'//版本号
+    publishVersion = '1.2.0'//版本号
     desc = 'Oh hi, this is a nice description for a project, right?'//描述，不重要
     website = 'https://github.com/xufengp420/libary-x01'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }
